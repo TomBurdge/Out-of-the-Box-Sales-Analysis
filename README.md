@@ -4,7 +4,7 @@ Managing and analyzing sales data is a crucial aspect of business intelligence. 
 
 ## Work in Progress (WIP)
 
-This project is currently a work in progress. The `app-public` file requires refactoring, and additional data quality tests need to be incorporated for input validation.
+This project is currently a work in progress. The `app-public.py` file requires refactoring, and additional data quality tests need to be incorporated for input validation.
 
 ### Why Out of the Box?
 
