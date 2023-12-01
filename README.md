@@ -1,59 +1,48 @@
-# Revenue Visualisation
-An enormous amount of business data involves sales.
+# Revenue Visualization Project
 
-There is plenty else, for example: logistics, HR, compliance.
+Managing and analyzing sales data is a crucial aspect of business intelligence. This project provides a framework for prototyping revenue visualization and analysis, focusing on the common analytics requests related to sales or revenue data.
 
-But an extremely common analytics request involves summarising and analysing sales aka revenue data.
+## Work in Progress (WIP)
 
-This project is an out of the box framework for prototyping revenue visualisation and analysis.
+This project is currently a work in progress. The `app-public` file requires refactoring, and additional data quality tests need to be incorporated for input validation.
 
-# WIP
-This project is a WIP.
+### Why Out of the Box?
 
-The app-public file is fairly poorly written right now and needs some refactoring. 
-It also needs a few data quality tests added for the input.
+Professionals often excel by having stock responses for common requests, similar to chess openings or standard data models. This project aims to provide an out-of-the-box solution to streamline revenue analysis, enabling users to build upon a pre-established template.
 
-## Why out of the box?
+## Libraries - Functime
 
-People who are good at something are usually good enough that they have a set of stock responses for certain requests.
+Functime is a Python library designed for super-fast forecasting on time series datasets. Given that sales and revenue data are inherently time-series oriented (e.g., sales/month or year), Functime includes a sub-library that leverages OpenAI for time-series analysis.
 
-Like a chess opening, or a standard data model, one of the easiest ways to be better at something is to have a stock template that you build upon.
+With this repository, users can utilize Functime to call OpenAI and request analysis.
 
-## The libraries - Functime
+## How to Use
 
-Functime is a python library which performs super fast forecasting on time series datasets.
+This repository contains code for a Streamlit app that expects a sales parquet file. To use this app, ensure your sales file adheres to the following three columns:
 
-Effectively all sales/revenue data is time-series data; for example, sales/month or year.
+1. **Entity**
+    - Description: A categorical column representing different entities or categories related to time series data.
+    - Example: Brands of products, business units, etc.
 
-Functime contains a sub-library which calls OpenAI with a time-series dataset and asks for analysis.
+2. **Date**
+    - Description: A datetime column specifying the dates corresponding to the recorded values.
+    - Example: YYYY-MM-DD HH:MM:SS
 
-With this repo, you can use functime to call OpenAI and ask for analysis.
+3. **Value**
+    - Description: A numerical column representing the values associated with the entities and dates.
+    - Example: Product sales in GBP (Great British Pounds), revenue, quantity sold, etc.
 
-# How to use
+Ensure there are no duplicate rows or duplicate dates for an entity (checks for this are in place). While it's possible to extend the app to a more complicated schema, the initial design is deliberately straightforward for generic use.
 
-This repo involves code for a streamlit app which expects a sales parquet file.
+The app is currently public at [site](site). If the site is unexpectedly down, please raise an issue on GitHub.
 
-To qualify as a generic sales file, the file should have three columns:
-1. Entity - a column which contains categories of time series. For example, different brands of product.
-2. Date - a datetime column which contains the dates for the values.
-3. Value - the value (e.g. product sales in GBP).
+To run the app locally, clone the repository and run `make setup`. Place your OpenAI API key in a local `.env` file. Then, proceed with development as usual with Streamlit.
 
-There should be no duplicate rows, or duplicate dates for an entity (there are checks for this). You could change this, but it would result in some surprising behaviour.
+## Limitations
 
-It is possible to extend the app to a more complicated schema, but to be initially generic the schema is very straightforward.
-
-This is currently a public at {site}.
-If the site is down unexpectedly, please raise an issue on GitHub.
-
-If you want to run this locally, clone the repo and run `make setup`.
-You need to put your OpenAI API key in a local `.env` file.
-You can then develop as you would usually with streamlit.
-
-# Limitations
-- Using LLMs, especially with an API, always carries a risk. **Always be careful of prompt injection and do not expose any of your secrets.**
-- The source code here is public, but do you trust the code here to handle your data? Is the data you are uploading private or public? If it is private, or not yours, do not upload it to a public website and consider before sending it to OpenAI.
-- Having the input file be a csv file is possible (easy) but I decided against because csvs can bring complications (In in particular: no headers, or non-utf8 encoding).
-- This can, in principle be used for a non-additive metric over a period.
-- This assumes weekly/monthly periodicity of data over at least a couple of years.
-- Data sent to the LLM must not be over X rows (budget constraints).
-- Data should not have repeats for a period.
+- Using LLMs, especially with an API, carries a risk. **Exercise caution against prompt injection and avoid exposing any secrets.**
+- The source code is public, but evaluate whether you trust it to handle your data. If the data is private or not yours, avoid uploading it to a public website and reconsider before sending it to OpenAI.
+- Though using a CSV file is possible, the app currently requires a parquet file for simplicity.
+- The project assumes a weekly/monthly periodicity of data over at least a couple of years.
+- Data sent to the LLM must not exceed a certain number of rows due to budget constraints.
+- The data should not have repeats for a given period.
