@@ -7,6 +7,12 @@ But an extremely common analytics request involves summarising and analysing sal
 
 This project is an out of the box framework for prototyping revenue visualisation and analysis.
 
+# WIP
+This project is a WIP.
+
+The app-public file is fairly poorly written right now and needs some refactoring. 
+It also needs a few data quality tests added for the input.
+
 ## Why out of the box?
 
 People who are good at something are usually good enough that they have a set of stock responses for certain requests.
