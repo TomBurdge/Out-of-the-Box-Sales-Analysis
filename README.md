@@ -1,10 +1,6 @@
-# Revenue Visualization Project
+# Revenue Visualization
 
 Managing and analyzing sales data is a crucial aspect of business intelligence. This project provides a framework for prototyping revenue visualization and analysis, focusing on the common analytics requests related to sales or revenue data.
-
-## Work in Progress (WIP)
-
-This project is currently a work in progress. The `app-public.py` file requires refactoring, and additional data quality tests need to be incorporated for input validation.
 
 ## Libraries - Functime
 
@@ -49,9 +45,9 @@ Changes I would recommend for a *real* use case:
 ## Limitations
 
 - Using LLMs, especially with an API, carries a risk. **Exercise caution against prompt injection and avoid exposing any secrets.**
-- The source code is public, but evaluate whether you trust it to handle your data. If the data is private or not yours, avoid uploading it to a public website and reconsider before sending it to OpenAI.
-- Though using a CSV file is possible, the app currently requires a parquet file for simplicity.
+- The source code is public, but evaluate whether you trust it to handle your data. Use at your own risk. If the data is private or not yours, avoid uploading it to a public website and reconsider before sending it to OpenAI.
+- Though using a CSV file is possible, the app currently requires a parquet file for simplicity. With CSVs, the following become an issue: encoding, quotechars, seps.
 - The project assumes a weekly/monthly periodicity of data over at least a couple of years. If you had daily data, you would want to resample it.
 - Data sent to the LLM should not exceed a certain number of rows, say 200 at once, due to budget and token constraints.
 - The data should not have repeats for a given period.
-- You will probably see some smallish hallucinations with the base models. You could fine tune OpenAI or host your own model as an alternative.
+- You will probably see some smallish hallucinations with the base models. You could fine tune OpenAI or host your own model as an alternative (this is not currently possible with `functime`).
