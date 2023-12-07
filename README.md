@@ -39,7 +39,7 @@ Streamlit is extremely easy to deploy to [Streamlit Community Cloud](https://str
 Streamlit is reasonably easy to deploy as a website, either on Streamlit's cloud service or through methods [here](https://discuss.streamlit.io/t/streamlit-deployment-guide-wiki/5099).
 
 Changes I would recommend for a *real* use case:
-- Streamlit is great for prototyping, but another web-app framework would arguably be much better.
+- Streamlit is great for prototyping, but other web-app frameworks have much more flexibility.
 - Uploading flat files is good for showcasing. But it would be reasonably easy to refactor, more secure, and more user friendly to connect to data in a SQL database that the user could select from a drop down.
 
 ## Limitations
