@@ -48,6 +48,6 @@ Changes I would recommend for a *real* use case:
 - The source code is public, but evaluate whether you trust it to handle your data. Use at your own risk. If the data is private or not yours, avoid uploading it to a public website and reconsider before sending it to OpenAI.
 - Though using a CSV file is possible, the app currently requires a parquet file for simplicity. With CSVs, the following become an issue: encoding, quotechars, seps.
 - The project assumes a weekly/monthly periodicity of data over at least a couple of years. If you had daily data, you would want to resample it.
-- Data sent to the LLM should not exceed a certain number of rows, say 200 at once, due to budget and token constraints.
+- A full time series for an entity should be relatively small. This is for memory limits, and LLM API budget and token constraints.
 - The data should not have repeats for a given period.
 - You will probably see some smallish hallucinations with the base models. You could fine tune OpenAI or host your own model as an alternative (this is not currently possible with `functime`).
