@@ -26,7 +26,7 @@ This repository contains code for a Streamlit app that expects a sales parquet f
     - Description: A numerical column representing the values associated with the entities and dates.
     - Example: Product sales in GBP (Great British Pounds), revenue, quantity sold, etc.
 
-Ensure there are no duplicate rows or duplicate dates for an entity (checks for this are in place). 
+Ensure there are no duplicate rows or duplicate dates for an entity. 
 
 While it is possible to extend the app to a more complicated schema, the initial design is deliberately straightforward for generic use.
 
