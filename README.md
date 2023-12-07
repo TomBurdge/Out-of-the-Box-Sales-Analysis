@@ -34,9 +34,12 @@ To run the app locally, clone the repository and run `make setup`. Place your Op
 
 ## Don't have example data at hand?
 Dunnhumby's [Breakfast at the Frat](https://www.dunnhumby.com/source-files/) dataset will reasonably work well for this app, with a bit of modification.
+
 This data can be downloaded freely from their site, but their [terms of use](https://www.dunnhumby.com/terms-and-conditions/) prohibit sharing it beyond their site.
-Once you have downloaded the data, you can run the prep_dunhummby.py file to make a suitable parquet. 
-The download excel should be in your "local" folder, which is made in the MakeFile and won't be tracked by git.
+
+Download the data manually yourself. You can then run the prep_dunhummby.py file to make a suitable parquet. 
+
+Unzip the excel to your "local" folder, which is made in the MakeFile and won't be tracked by git.
 
 ## How to Deploy
 Streamlit is extremely easy to deploy to [Streamlit Community Cloud](https://streamlit.io/cloud), although I wouldn't recommend deploying a publicly available website with your own data/secrets.
