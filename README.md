@@ -52,5 +52,6 @@ Changes I would recommend for a *real* use case:
 - The source code is public, but evaluate whether you trust it to handle your data. If the data is private or not yours, avoid uploading it to a public website and reconsider before sending it to OpenAI.
 - Though using a CSV file is possible, the app currently requires a parquet file for simplicity.
 - The project assumes a weekly/monthly periodicity of data over at least a couple of years.
-- Data sent to the LLM must not exceed a certain number of rows due to budget constraints.
+- Data sent to the LLM should not exceed a certain number of rows, say 200 at once, due to budget and token constraints.
 - The data should not have repeats for a given period.
+- You will probably see some smallish hallucinations with the base models. You could fine tune OpenAI or host your own model as an alternative.
