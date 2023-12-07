@@ -33,7 +33,7 @@ While it is possible to extend the app to a more complicated schema, the initial
 To run the app locally, clone the repository and run `make setup`. Place your OpenAI API key in a local `.env` file. Then, proceed with development as usual with Streamlit.
 
 ## Don't have example data at hand?
-Dunnhumby's [Breakfast at the Frat](https://www.dunnhumby.com/source-files/) dataset will work well for this app, with a bit of modification.
+Dunnhumby's [Breakfast at the Frat](https://www.dunnhumby.com/source-files/) dataset will reasonably work well for this app, with a bit of modification.
 This data can be downloaded freely from their site, but their [terms of use](https://www.dunnhumby.com/terms-and-conditions/) prohibit sharing it beyond their site.
 Once you have downloaded the data, you can run the prep_dunhummby.py file to make a suitable parquet. 
 The download excel should be in your "local" folder, which is made in the MakeFile and won't be tracked by git.
