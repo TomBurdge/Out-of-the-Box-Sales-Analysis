@@ -6,6 +6,8 @@ from dotenv import load_dotenv
 from plotting import plot_line_bar
 
 load_dotenv()
+# need to load OpenAI API key from secrets before imports
+# this is an anti-pattern, will raise an issue on functime about this
 from functime.llm import LLMActions  # noqa
 
 st.set_page_config(layout="wide")
