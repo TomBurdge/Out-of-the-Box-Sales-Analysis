@@ -32,6 +32,7 @@ min_date = df.select(date_col).min().collect()[0, 0]
 entities = (
     df.group_by(entity_col)
     .agg(pl.col(value_col).sum())
+    # entity with greatest share by default
     .sort(by=value_col, descending=True)
     .select(entity_col)
     .collect()
@@ -53,9 +54,12 @@ entity_df = df.filter(
 
 year_after_start = min_date + timedelta(days=365)
 mat_df = (
-    entity_df.with_columns(
+    entity_df.sort(by=[entity_col, date_col])
+    .with_columns(
         pl.col(value_col)
-        .rolling_sum(window_size="1y", by=date_col, warn_if_unsorted=False)
+        .rolling_sum(
+            window_size="1y", by=date_col, warn_if_unsorted=False, closed="left"
+        )
         .over(entity_col)
         .alias("mat_value")
     )
@@ -72,7 +76,6 @@ with tab1:
 
 with tab2:
     plot_line_bar(mat_df, [selected_entity, selected_second_entity], "MAT")
-
 
 st.write("LLM analysis will appear here:")
 
